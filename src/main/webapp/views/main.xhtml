@@ -6,20 +6,21 @@
       xmlns:p="http://primefaces.org/ui"
 >
 
-<!--<ui:composition template="WEB-INF/templates/master.xhtml">-->
-<!--    <ui:define name="head">-->
+<ui:composition template="WEB-INF/templates/master.xhtml">
+    <ui:define name="head">
 <h:head>
     <title>Инячина Лаб3</title>
     <h:outputStylesheet library="css" name="main.css"/>
     <h:outputScript library="js" name="draw_table.js"/>
 </h:head>
-<!--    </ui:define>-->
-<!--    <ui:define name="content">-->
+    </ui:define>
+    <ui:define name="content">
 <h:body>
-<!--    <div id="content">-->
+   <div id="content">
         <h:button styleClass="back_button" value="back" outcome="index"></h:button>
         <div id="description"> Инячина Диана Александровна P3214 Вариант "Тролленг года" или 44</div>
         <div id="graph_div">
+            <h:graphicImage styleClass="graph_image" library="img" name="gotham.jpg"/>
             <h:graphicImage styleClass="graph_image" library="img" name="bat.png"/>
         </div>
         <h:panelGrid styleClass="text" layout="flex" columns="2" border="0"
@@ -120,10 +121,10 @@
         </div>
 <!--    </div>-->
 
-    <!--    </ui:define>-->
+         </ui:define>
     <h:outputScript library="js" name="validation_main.js"/>
     <h:outputScript library="js" name="canvas.js"/>
 
 </h:body>
-<!--</ui:composition>-->
+</ui:composition>
 </html>

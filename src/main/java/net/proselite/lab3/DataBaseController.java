@@ -8,11 +8,9 @@ import java.util.List;
 @ManagedBean
 @ApplicationScoped
 public class DataBaseController {
-        private final String url = "jdbc:postgresql://localhost:5432/pip";
-    private final String user = "postgres";
-//    private final String url = "jdbc:postgresql://pg:5432/studs";
-//    private final String user = "s283945";
-    private final String passvord = "iow988";
+    private final String url = "jdbc:postgresql://pg:5432/studs";
+    private final String user = "s283945";
+    private final String passvord = "******";
 
     private Connection connection;
     private PreparedStatement ps;

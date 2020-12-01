@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<!--<ui:composition template="WEB-INF/templates/master.xhtml">-->
+<!--    <ui:define name="head">-->
+<h:head>
+    <title>Инячина Лаб3</title>
+    <h:outputStylesheet library="css" name="main.css"/>
+    <h:outputScript library="js" name="draw_table.js"/>
+</h:head>
+<!--    </ui:define>-->
+<!--    <ui:define name="content">-->
+<h:body>
+<!--    <div id="content">-->
+        <h:button styleClass="back_button" value="back" outcome="index"></h:button>
+        <div id="description"> Инячина Диана Александровна P3214 Вариант "Тролленг года" или 44</div>
+        <div id="graph_div">
+            <h:graphicImage styleClass="graph_image" library="img" name="bat.png"/>
+        </div>
+        <h:panelGrid styleClass="text" layout="flex" columns="2" border="0"
+                     cellpadding="5px"
+                     cellspacing="10px">
+            <h:outputLabel for="x_out_text">X:</h:outputLabel>
+            <h:outputText id="x_out_text"> </h:outputText>
+
+            <h:outputLabel for="y_out_text">Y:</h:outputLabel>
+            <h:outputText id="y_out_text" value="#{pointController.point.y}"> </h:outputText>
+
+            <h:outputLabel for="r_out_text">R:</h:outputLabel>
+            <h:outputText id="r_out_text" value=" #{pointController.point.r}"></h:outputText>
+        </h:panelGrid>
+        <h:form prependId="false">
+            <h:panelGrid styleClass="noBorders" cellpadding="3px">
+                <h:panelGroup id="radio_x_div">
+                    <h:selectOneRadio display="x_out_text" value="#{pointController.point.x}">
+                        <f:selectItem name="x_item" itemValue="-4" itemLabel="-4"/>
+                        <f:selectItem name="x_item" itemValue="-3" itemLabel="-3"/>
+                        <f:selectItem name="x_item" itemValue="-2" itemLabel="-2"/>
+                        <f:selectItem name="x_item" itemValue="-1" itemLabel="-1"/>
+                        <f:selectItem name="x_item" itemValue="0" itemLabel="0"/>
+                        <f:selectItem name="x_item" itemValue="1" itemLabel="1"/>
+                        <f:selectItem name="x_item" itemValue="2" itemLabel="2"/>
+                        <f:selectItem name="x_item" itemValue="3" itemLabel="3"/>
+                        <f:selectItem name="x_item" itemValue="4" itemLabel="4"/>
+                    </h:selectOneRadio>
+                </h:panelGroup>
+                <div id="graph_x_div">
+                    <p:inputText id="x"
+                                 styleClass="text_x_field"
+                                 value="#{pointController.canvasX}"
+                                 placeholder="-4...4"
+                                 maxlength="10"></p:inputText>
+                </div>
+                <p:inputText id="y"
+                             ajax="false"
+                             required="true"
+                             styleClass="text_field"
+                             value="#{pointController.point.y}"
+                             placeholder="-3...5"
+                             maxlength="10"></p:inputText>
+                <h:inputHidden id="r" value="#{pointController.point.r}"/>
+                <p:slider styleClass="slider_class" id="slider" for="r" display="r_out_text" minValue="1" maxValue="4" step="0.25"/>
+                <h:panelGrid columns="2">
+                    <h:panelGroup style="margin: auto">
+                        <p:commandButton id="send" styleClass="button" value="send"
+                                         action="#{pointController.hitPoint}"
+                                         update="table">
+                        </p:commandButton>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <p:commandButton id="clear" styleClass="button" value="clear"
+                                         action="#{pointController.clearPoints}"
+                                         update="table"></p:commandButton>
+                    </h:panelGroup>
+                </h:panelGrid>
+            </h:panelGrid>
+
+        </h:form>
+        <div class="table_container">
+            <h:dataTable id="table" styleClass="table_result" value="#{pointController.pointBeans}"
+                         var="pointResult">
+                <h:column>
+                    <f:facet name="header">X</f:facet>
+                    #{pointResult.x}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Y</f:facet>
+                    #{pointResult.y}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">R</f:facet>
+                    #{pointResult.r}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Result</f:facet>
+                    #{pointResult.res}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Time</f:facet>
+                    #{pointResult.time}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Actions</f:facet>
+                    <button class="table_button" name="action_button"
+                            value="#{pointResult.x};#{pointResult.y};#{pointResult.r};#{pointResult.res}">
+                        <script type="text/javascript">
+                            initActionButtons();
+                        </script>
+                    </button>
+                </h:column>
+            </h:dataTable>
+        </div>
+<!--    </div>-->
+
+    <!--    </ui:define>-->
+    <h:outputScript library="js" name="validation_main.js"/>
+    <h:outputScript library="js" name="canvas.js"/>
+
+</h:body>
+<!--</ui:composition>-->
+</html>

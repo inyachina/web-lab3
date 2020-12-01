@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(110deg, #EC77AB, #7873F5);
+    align-content: center;
+}
+
+.button {
+    background: white;
+    color: rgb(192, 62, 255);
+    width: 300px;
+    height: 100px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    font-size: 36px;
+    text-transform: uppercase;
+    position: absolute;
+
+}
+
+.button:hover {
+    border: 4px solid rgba(165, 161, 203, 0.3);
+    cursor: pointer;
+}
+
+.button:hover {
+    border: 4px solid rgba(165, 161, 203, 0.3);
+}
+.ui-clock{
+    border-radius: 10px ;
+    background: rgba(255,255,255,0.5);
+    /*border: 1px white solid;*/
+    color: #4f2869;
+    border: none;
+    mix-blend-mode: unset;
+}
+#date_time {
+    border: rgba(255, 255, 255, 0.01);
+    color: white;
+}
+
+#button_div {
+    color: white;
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#date_div {
+    margin: auto;
+    font-family: "Roboto Light", serif;
+    color: white;
+    position: absolute;
+    top: 65%;
+    left: 43%;
+    text-align: center;
+}
